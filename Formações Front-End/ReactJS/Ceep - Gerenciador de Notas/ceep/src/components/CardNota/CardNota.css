@@ -1,0 +1,43 @@
+.card-nota { 
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 1px 15px;
+    margin: 5px;
+    max-width: 350px;
+    cursor: pointer;
+    transition: all ease .2s;
+}
+
+.card-nota:hover {
+    background-color: rgba(0,0,0,0.03);
+    border: 10px solid rgba(0,0,0,0.001);;
+}
+
+.card-nota_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-nota_header > * {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.card-nota_icon {
+    flex: 0;
+    margin-right: 10px;
+}
+
+.card-nota_title {
+    flex:2;
+}
+
+.card-nota_time {
+    color: rgba(0,0,0,0.5);
+}
+
+.card-nota_text {
+    color: rgba(0,0,0,0.7);
+    margin-top: 5px;
+}

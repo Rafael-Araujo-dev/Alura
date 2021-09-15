@@ -1,14 +1,13 @@
-.container-lista {
+.container-lista-notas {
     position: relative;
     left: 2.5%;
     width: 95%;
     margin: 0;
     padding: 0;
     list-style-type: none;
-    /* background-color: blue; */
 }
 
-.container-lista {
+.container-lista-notas {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

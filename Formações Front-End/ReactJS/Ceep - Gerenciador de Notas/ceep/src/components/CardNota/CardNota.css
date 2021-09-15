@@ -10,11 +10,12 @@
 
 .card-nota:hover {
     background-color: rgba(0,0,0,0.03);
-    border: 10px solid rgba(0,0,0,0.001);;
+    border: 8px solid rgba(0,0,0,0.001);;
 }
 
 .card-nota_header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -22,6 +23,11 @@
 .card-nota_header > * {
     margin: 5px 0;
     padding: 0;
+}
+
+.card-nota_category {
+    flex: 0 0 100%;
+    color: rgba(0,0,0,065);
 }
 
 .card-nota_icon {

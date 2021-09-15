@@ -5,12 +5,11 @@ import './ListaDeNotas.css';
 
 const ListaDeNotas = () => {
     return (
-        <ul className="container-lista">
+        <ul className="container-lista-notas">
             {Array.of("Trabalho", "Trabalho", "Trabalho", "Trabalho", "Trabalho", "Trabalho", "Estudos").map((categoria, index) => {
                 return (
                     <li key={index}>
-                        {/* <div>{categoria}</div> */}
-                        <CardNota />
+                        <CardNota categoria={categoria}/>
                     </li>
                 );
             })}

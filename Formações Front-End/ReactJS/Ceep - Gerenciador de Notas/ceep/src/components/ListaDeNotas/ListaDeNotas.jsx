@@ -16,6 +16,7 @@ export default class ListaDeNotas extends Component {
                                 id={note.id} 
                                 title={note.title}
                                 text={note.text}
+                                category={note.category}
                             />
                         );
                     })}

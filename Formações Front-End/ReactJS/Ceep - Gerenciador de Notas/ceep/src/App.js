@@ -11,11 +11,20 @@ export default class App extends Component {
 
     this.state = {
       notes:[],
+      categories:["Geral"],
     }
   }
-  addNotes(id, title, text) {
+
+  addCategory(text) {
+    const newArrayCategories = [...this.state.categories, text]
+    const newState = {...this.state, categories:newArrayCategories};
+    this.setState(newState);
+  }
+
+  addNotes(id, title, text, category) {
     id = this.state.notes.length;
-    const newNote = {id, title, text};
+    const newNote = {id, title, text, category};
+    console.log(newNote);
     const newArrayNotes = [...this.state.notes, newNote];
     const newState = {
       notes:newArrayNotes
@@ -32,8 +41,14 @@ export default class App extends Component {
   render() {
     return (
       <section>
-        <ListaDeCategorias />
-        <FormularioCadastro addNotes={this.addNotes.bind(this)} />
+        <ListaDeCategorias 
+          addCategory={this.addCategory.bind(this)}
+          categories={this.state.categories}
+        />
+        <FormularioCadastro
+          categories={this.state.categories} 
+          addNotes={this.addNotes.bind(this)} 
+        />
         <ListaDeNotas 
           removeNote={this.removeNote.bind(this)}
           notes={this.state.notes} 

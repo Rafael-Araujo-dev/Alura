@@ -23,13 +23,17 @@
 }
 
 .card-nota_header > * {
-    margin: 5px 0;
+    margin: 0;
     padding: 0;
 }
 
 .card-nota_category {
     flex: 0 0 100%;
     color: rgba(0,0,0,065);
+    background: rgba(0,0,0,0.05);
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 10px;
 }
 
 .card-nota_icon {

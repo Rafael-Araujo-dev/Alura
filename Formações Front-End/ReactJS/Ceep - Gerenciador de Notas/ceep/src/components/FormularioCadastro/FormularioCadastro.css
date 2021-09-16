@@ -20,14 +20,21 @@
     outline: none;
 }
 
+.form-select-category {
+    flex: 1 1;
+    color: rgb(80,80,80);
+    font-size: 1em;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
 .form-title-nota {
-    flex: 2;
-    font-size: 1.2rem;
+    flex: 100%;
+    margin-bottom: 5px;
 }
 
 .form-text-nota {
-    flex: 5;
-    min-width: 350px;
+    flex: 100%;
     padding: 5px;
     font-size: 0.9rem;
 }
@@ -35,5 +42,4 @@
 .btn-add-nota {
     flex: 1;
     cursor: pointer;
-    min-height: 40px;
 }

@@ -9,7 +9,7 @@
 
 .nav-categories input {
     font-size: 1em;
-    flex: 1;
+    flex: 7;
 }
 
 .nav-categories select {
@@ -18,5 +18,6 @@
 }
 
 .nav-categories button {
+    flex: 1;
     cursor: pointer;
 }

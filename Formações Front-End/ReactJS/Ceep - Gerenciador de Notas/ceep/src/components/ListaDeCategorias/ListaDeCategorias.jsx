@@ -4,22 +4,31 @@ import './ListaDeCategorias.css';
 
 export default class ListaDeCategorias extends Component {
 
+    constructor(props) {
+        super(props);
+        this.categoryValue = "";
+    }
+
+    _handleCategoryChange(event) {
+        event.stopPropagation();
+        this.categoryValue = event.target.value;
+    }
+
     addCategory() {
-    
+        if(this.categoryValue.trim() != "") {
+            this.props.addCategory(this.categoryValue);
+        }
     }
 
     render() { 
         return (
             <div className="nav-categories">
-                <input type="text" placeholder="Adicionar categoria"/>
+                <input
+                    onChange={this._handleCategoryChange.bind(this)} 
+                    type="text" 
+                    placeholder="Adicionar categoria"
+                />
                 <button onClick={this.addCategory.bind(this)}>Adicionar</button>
-                <select>
-                    <option>Todas categorias</option>
-                    <option>Todas categorias</option>
-                    <option>Todas categorias</option>
-                    <option>Todas categorias</option>
-                    <option>Todas categorias</option>
-                </select>
             </div>
         )
     }

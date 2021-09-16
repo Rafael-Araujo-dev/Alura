@@ -6,6 +6,7 @@ export default class FormularioCadastro extends Component {
 
     constructor(props) {
         super(props);
+        this.id=0;
         this.title="";
         this.text="";
     }
@@ -23,14 +24,14 @@ export default class FormularioCadastro extends Component {
     _handleAddNote = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        this.props.addNotes(this.title, this.text);
+        this.props.addNotes(this.id, this.title, this.text);
     }
     render() {
         return (
             <form 
                 className="form-add-nota"
                 onSubmit={this._handleAddNote.bind(this)}
-            >
+            >                  
                 <input 
                     className="form-title-nota" 
                     type="text" 

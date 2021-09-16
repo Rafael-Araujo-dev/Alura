@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
+import ListaDeCategorias from './components/ListaDeCategorias/ListaDeCategorias';
 import ListaDeNotas from './components/ListaDeNotas/ListaDeNotas';
 
 export default class App extends Component {
@@ -9,11 +10,12 @@ export default class App extends Component {
       super();
 
     this.state = {
-      notes:[]
+      notes:[],
     }
   }
-  addNotes(title, text) {
-    const newNote = {title, text};
+  addNotes(id, title, text) {
+    id = this.state.notes.length;
+    const newNote = {id, title, text};
     const newArrayNotes = [...this.state.notes, newNote];
     const newState = {
       notes:newArrayNotes
@@ -21,11 +23,21 @@ export default class App extends Component {
     this.setState(newState)
   }
 
+  removeNote(index) {
+    let arrayNotes = this.state.notes;
+    arrayNotes.splice(index,1);
+    this.setState({notes:arrayNotes});  
+  }
+
   render() {
     return (
       <section>
+        <ListaDeCategorias />
         <FormularioCadastro addNotes={this.addNotes.bind(this)} />
-        <ListaDeNotas notes={this.state.notes} />
+        <ListaDeNotas 
+          removeNote={this.removeNote.bind(this)}
+          notes={this.state.notes} 
+        />
       </section>  
     );
   }

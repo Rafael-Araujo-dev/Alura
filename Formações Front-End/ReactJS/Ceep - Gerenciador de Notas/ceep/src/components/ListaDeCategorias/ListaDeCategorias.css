@@ -1,0 +1,22 @@
+.nav-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.nav-categories input {
+    font-size: 1em;
+    flex: 1;
+}
+
+.nav-categories select {
+    width: 100%;
+    font-size: 1em;
+}
+
+.nav-categories button {
+    cursor: pointer;
+}

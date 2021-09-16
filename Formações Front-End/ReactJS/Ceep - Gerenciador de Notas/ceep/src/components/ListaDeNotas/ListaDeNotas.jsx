@@ -11,6 +11,7 @@ export default class ListaDeNotas extends Component {
                     this.props.notes.map((note, index) => {
                         return (
                             <CardNota 
+                                removeNote={this.props.removeNote}
                                 key={index}
                                 id={note.id} 
                                 title={note.title}

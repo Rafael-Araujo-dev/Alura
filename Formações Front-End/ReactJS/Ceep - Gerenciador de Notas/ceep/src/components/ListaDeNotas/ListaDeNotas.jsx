@@ -10,6 +10,7 @@ const ListaDeNotas = (props) => {
                 props.notes.map(note => 
                     (
                         <CardNota 
+                            key={note.id}
                             id={note.id} 
                             title={note.title}
                             text={note.text}

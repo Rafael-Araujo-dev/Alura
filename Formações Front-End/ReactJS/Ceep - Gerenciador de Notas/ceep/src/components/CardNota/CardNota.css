@@ -4,6 +4,7 @@
     padding: 1px 15px;
     margin: 5px;
     max-width: 350px;
+    min-width: 200px;
     cursor: pointer;
     transition: all ease .2s;
     outline: none;
@@ -38,6 +39,7 @@
 
 .card-nota_title {
     flex:2;
+    margin-right: 5px;
 }
 
 .card-nota_time {

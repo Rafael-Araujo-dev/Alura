@@ -1,46 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './FormularioCadastro.css';
 
-let title = "";
-let text = "";
+export default class FormularioCadastro extends Component {
 
-const handleTitleChange = (event) => {
-    title = event.target.value;
-}
+    constructor(props) {
+        super(props);
+        this.title="";
+        this.text="";
+    }
 
-const handleTextChange = (event) => {
-    text = event.target.value;
-}
-
-const FormularioCadastro = (props) => {
-
-    const handleCreateNote = (event) => {
-        event.preventDefault();
-        props.addNotes(title, text);
+    _handleTitleChange(event) {
+        event.stopPropagation();
+        this.title = event.target.value;
     }
     
-    return (
-        <form 
-            className="form-add-nota"
-            onSubmit={handleCreateNote}
-        >
-            <input 
-                className="form-title-nota" 
-                type="text" 
-                placeholder="Título"
-                onChange={handleTitleChange}
-            />
-            <textarea 
-                className="form-text-nota" 
-                placeholder="Escreva sua nota..."
-                onChange={handleTextChange}
-            ></textarea>
-            <button 
-                className="btn-add-nota"
-            >Criar Nota</button>
-        </form>
-    );
-}
+    _handleTextChange(event) {
+        event.stopPropagation();
+        this.text = event.target.value;
+    }    
 
-export default FormularioCadastro;
+    _handleAddNote = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        this.props.addNotes(this.title, this.text);
+    }
+    render() {
+        return (
+            <form 
+                className="form-add-nota"
+                onSubmit={this._handleAddNote.bind(this)}
+            >
+                <input 
+                    className="form-title-nota" 
+                    type="text" 
+                    placeholder="Título"
+                    onChange={this._handleTitleChange.bind(this)}
+                />
+                <textarea 
+                    className="form-text-nota" 
+                    placeholder="Escreva sua nota..."
+                    onChange={this._handleTextChange.bind(this)}
+                ></textarea>
+                <button 
+                    className="btn-add-nota"
+                >Criar Nota</button>
+            </form>
+        );
+    }
+}

@@ -1,32 +1,32 @@
-import React, {useState} from 'react';
+import React, { Component } from 'react';
 
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
 import ListaDeNotas from './components/ListaDeNotas/ListaDeNotas';
 
-const App = () => {
+export default class App extends Component {
 
-  const [notes, setNotes] = useState([
-                                      {
-                                        id: 0,
-                                        title: 'Lorem Ipsum',
-                                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper, odio et sollicitudin euismod, magna lorem ultricies sapien, vel volutpat felis nunc tempus felis. '
-                                      }
-                                    ]);
+  constructor() {
+      super();
 
-  const addNotes = (title, text) => {
-    setNotes([...notes, {
-      id: notes.length,
-      title: title,
-      text: text
-    }]);
+    this.state = {
+      notes:[]
+    }
+  }
+  addNotes(title, text) {
+    const newNote = {title, text};
+    const newArrayNotes = [...this.state.notes, newNote];
+    const newState = {
+      notes:newArrayNotes
+    }
+    this.setState(newState)
   }
 
-  return (
-    <section>
-      <FormularioCadastro addNotes={addNotes} />
-      <ListaDeNotas notes={notes} />
-    </section>  
-  );
+  render() {
+    return (
+      <section>
+        <FormularioCadastro addNotes={this.addNotes.bind(this)} />
+        <ListaDeNotas notes={this.state.notes} />
+      </section>  
+    );
+  }
 }
-
-export default App;

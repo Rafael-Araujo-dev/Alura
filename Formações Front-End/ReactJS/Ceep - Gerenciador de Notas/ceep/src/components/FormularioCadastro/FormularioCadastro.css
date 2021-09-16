@@ -35,4 +35,5 @@
 .btn-add-nota {
     flex: 1;
     cursor: pointer;
+    min-height: 40px;
 }

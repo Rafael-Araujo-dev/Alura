@@ -10,8 +10,22 @@ export default class FormularioCadastro extends Component {
         this.title="";
         this.text="";
         this.category="Geral";
+        this.state = {categories:['Geral']};
+
+        this._newCategories = this._newCategories.bind(this);
     }
 
+    componentDidMount() {
+        this.props.categories.subscribe(this._newCategories);
+    }
+
+    componentWillUnmount() {
+        this.props.categories.unsubscribe(this._newCategories);
+    }
+
+    _newCategories(categories) {
+        this.setState({...this.state, categories})
+    }
     _handleCategoryChange(event) {
         event.stopPropagation();
         this.category = event.target.value;
@@ -32,7 +46,6 @@ export default class FormularioCadastro extends Component {
         event.stopPropagation();
         if(this.title.trim() != "" && this.text.trim() != "") {
             this.props.addNotes(this.id, this.title, this.text, this.category);
-            console.log(this.category);
         }
     }
     render() {
@@ -43,7 +56,7 @@ export default class FormularioCadastro extends Component {
             >   
                 <label>Categoria:</label>
                 <select onChange={this._handleCategoryChange.bind(this)} className="form-select-category">
-                    {this.props.categories.map((category, index) => {
+                    {this.state.categories.map((category, index) => {
                         return (
                             <option key={index}>{category}</option>
                         )

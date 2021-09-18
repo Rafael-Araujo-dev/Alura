@@ -1,24 +1,55 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import {Button, TextField, Switch, FormControlLabel} from '@material-ui/core/';
 
 const FormularioCadastro = () => {
     return (
         <>
             <form>
-                <label>Nome</label>
-                <input type="text"/>
+                <TextField
+                    id="nome"
+                    label="Nome"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
 
-                <label>Sobrenome</label>
-                <input type="text"/>
+                <TextField
+                    id="sobrenome"
+                    label="Sobrenome"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
 
-                <label>CPF</label>
-                <input type="text"/>
+               <TextField
+                    id="cpf"
+                    label="CPF"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
 
-                <label>Promoções</label>
-                <input type="checkbox"/>
-
-                <label>Novidades</label>
-                <input type="checkbox"/>
+                <FormControlLabel
+                    label="Promoções"
+                    control={
+                        <Switch
+                            name="promocoes"
+                            defaultChecked
+                            color="primary"
+                        />
+                    } 
+                />
+                
+                <FormControlLabel
+                    label="Novidades"
+                    control={
+                        <Switch
+                            name="novidades"
+                            defaultChecked
+                            color="primary"
+                        />
+                    }
+                />
 
                 <Button 
                     type="submit" 

@@ -4,14 +4,15 @@ import {Button, TextField, Switch, FormControlLabel} from '@material-ui/core/';
 const FormularioCadastro = () => {
     const [nome, setNome] = useState();
     const [sobrenome, setSobrenome] = useState();
-
+    const [cpf, setCPF] = useState();
+    const [promocoes, setPromocoes] = useState(true);
+    const [novidades, setNovidades] = useState(false);
 
     return (
         <>
             <form
                 onSubmit={(event) => { 
-                    console.log(nome); 
-                    console.log(sobrenome);
+                    console.log(nome, sobrenome, cpf, promocoes, novidades); 
                     event.preventDefault();
                 }}
             >
@@ -41,6 +42,10 @@ const FormularioCadastro = () => {
                 />
 
                <TextField
+                  onChange={(event) => {
+                        setCPF(event.target.value);
+                  }
+                }
                     id="cpf"
                     label="CPF"
                     variant="outlined"
@@ -52,8 +57,11 @@ const FormularioCadastro = () => {
                     label="Promoções"
                     control={
                         <Switch
+                           onChange={(event) => {
+                                setPromocoes(event.target.checked);
+                           }}
                             name="promocoes"
-                            defaultChecked
+                            checked={promocoes}
                             color="primary"
                         />
                     } 
@@ -63,8 +71,11 @@ const FormularioCadastro = () => {
                     label="Novidades"
                     control={
                         <Switch
+                           onChange={(event) => {
+                               setNovidades(event.target.checked);
+                           }}
                             name="novidades"
-                            defaultChecked
+                            checked={novidades}
                             color="primary"
                         />
                     }

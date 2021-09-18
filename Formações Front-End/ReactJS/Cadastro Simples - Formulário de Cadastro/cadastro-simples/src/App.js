@@ -21,8 +21,19 @@ export default class App extends Component {
           variant="h3"
           component="h1"
         >Formulário de Cadastro</Typography>
-        <FormularioCadastro />
+        <FormularioCadastro 
+          aoEnviar={aoEnviarForm} 
+          validarCPF={validarCPF}
+        />
       </Container>
     );
   }
+}
+
+function aoEnviarForm(dados) {
+  console.log(dados);
+}
+
+const validarCPF = (CPF) => {
+  return CPF.length !== 11 ? {valido: false, texto: "CPF deve ter 11 dígitos"} : {valido: true, texto: ""};
 }

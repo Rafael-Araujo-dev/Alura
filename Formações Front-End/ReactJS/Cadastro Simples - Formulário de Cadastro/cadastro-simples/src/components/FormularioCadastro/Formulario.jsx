@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, TextField, Switch, FormControlLabel} from '@material-ui/core/';
 
 const FormularioCadastro = () => {
+    const [nome, setNome] = useState();
+    const [sobrenome, setSobrenome] = useState();
+
+
     return (
         <>
-            <form>
+            <form
+                onSubmit={(event) => { 
+                    console.log(nome); 
+                    console.log(sobrenome);
+                    event.preventDefault();
+                }}
+            >
                 <TextField
+                  onChange={
+                      (event) => {
+                        setNome (event.target.value);
+                      }
+                  }
                     id="nome"
                     label="Nome"
                     variant="outlined"
@@ -14,6 +29,10 @@ const FormularioCadastro = () => {
                 />
 
                 <TextField
+                  onChange={(event) => {
+                        setSobrenome (event.target.value);
+                    }
+                  }
                     id="sobrenome"
                     label="Sobrenome"
                     variant="outlined"
